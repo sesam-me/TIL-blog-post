@@ -55,6 +55,8 @@ hashCode()는 인스턴스의 저장 주소를 반환하도록 Object Class에 �
 동일한 hashCode() 값을 반환
 논리적으로 동일함을 위해 equals() 메서드를 재정의 하였다면 hashCode()메서드도 재정의 하여 동일한 hashCode 값이 반환되도록 한다
 
+![image](https://github.com/sesam-me/TIL-blog_post/assets/122416681/806466bb-1edf-44aa-9c88-92d2342abcb8)
+
 <br/>
 <br/>
 <br/>
