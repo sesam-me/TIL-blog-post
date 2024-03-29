@@ -41,7 +41,7 @@ try-catch 선택
 개발자의 실수로 발생할 수 있는 오류까지 모두 try-catch로 잡으면 코드가 너무 길어진다.
 
 
-
+<img src="C:\Users\lsi66\Desktop\TIL-blog_post\exception\src\image\예외처리2.PNG" width="400" height="400"/>
 
 
 ### 3. 논리적 에러
