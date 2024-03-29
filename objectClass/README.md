@@ -16,7 +16,7 @@ protected void  finalize( ) :  객체가 소멸되기 전 자동으로 호출되
 모든 클래스는 Object에서 상속받고, Object 클래스의 메서드 중 일부는 재정의해서 사용할 수 있다.
 그렇가면 재정의 가능한 Object 클래스의 메서드 일부를 알아 보겠다!
 
-# 💁 toString()
+### 💁 toString()
 
 대표적인 Object 클래스의 메서드는 'toString()' 메서드가 있다.
 
@@ -26,7 +26,7 @@ protected void  finalize( ) :  객체가 소멸되기 전 자동으로 호출되
 
 여기서 @Override를 사용할 수 있는 이유가 해당 클래스가 이미 Object 클래스를 상속 받았음을 알 수 있다.
 
-# 💁 equals()
+### 💁 equals()
 
 다음으로 이 역시 널리 알려진, 메서드이다.
 
@@ -39,7 +39,7 @@ protected void  finalize( ) :  객체가 소멸되기 전 자동으로 호출되
 
 예를 들어 다른 인스턴스라도 (같은 학번, 같은 사번, 같은 아이디의 회원...)이면 같은 인스턴스라고 취급해야 한다.
 
-# 💁 hashCode()
+### 💁 hashCode()
 
 hashCode()는 인스턴스의 저장 주소를 반환하도록 Object Class에 정의 되어있다!
 
