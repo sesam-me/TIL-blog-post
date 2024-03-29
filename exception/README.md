@@ -15,8 +15,11 @@
 
 ### 2. 런타임 에러
    실행 시에 발생하는 에러
-<img src="C:\Users\lsi66\Desktop\TIL-blog_post\exception\src\image\예외처리1.PNG" width="600" height="600"/>
+   <br/>
+<img src="C:\Users\lsi66\Desktop\TIL-blog_post\exception\src\image\예외처리1.PNG" width="400" height="400"/>
 
+<br/>
+<br/>
 💡 Exception클래스들
 : Exception클래스 + 자식 클래스
 사용자의 실수와 같은 외적인 요인에 의해 발생하는 예외
