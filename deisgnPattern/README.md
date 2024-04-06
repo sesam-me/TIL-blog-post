@@ -212,6 +212,178 @@ IOS 설치
 [[디자인 패턴] 팩토리 패턴 종류/개념/예제](https://cjw-awdsd.tistory.com/54)
 
 3. 전략 패턴
+   객체의 행위를 바꾸고 싶은 경우, '직접' 수정하지 않고 전략이라고 부르는 '캡슐화 알고리즘'을 컨텍스트 안에서 바꿔주면서 상호 교체가 가능하게 만드는 패턴이다.
+
+
+
+💡 캡슐화
+데이터와 알고리즘을 하나로 묶는 것(관련있는 변수와 함수를 하나의 클래스로 묶는 것)
+외부에서 쉽게 접근하지 못하도록 은닉하는게 핵심
+
+
+💡 컨텍스트
+프로그래밍에서의 컨텍스트는 상황, 맥락, 문맥을 의미하며 개발자가 어떠한 작업을 완료하는데 필요한 모든 관련 정보를 말한다.
+
+
+
+
+
+
+
+
+
+어떤 것을 살 때 네이버페이, 카카오페이 등 다양한 방법으로 결제하는 것처럼
+
+결제 방식의 '전략'만 바꿔서 결제하는 것
+
+
+
+
+
+예제코드 전체보기
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+interface PaymentStrategy {
+public void pay(int amount);
+}
+
+class KAKAOCardStrategy implements PaymentStrategy {
+private String name;
+private String cardNumber;
+private String cvv;
+private String dateOfExpiry;
+
+    public KAKAOCardStrategy(String nm, String ccNum, String cvv, String expiryDate){
+        this.name=nm;
+        this.cardNumber=ccNum;
+        this.cvv=cvv;
+        this.dateOfExpiry=expiryDate;
+    }
+
+    @Override
+    public void pay(int amount) {
+        System.out.println(amount +" paid using KAKAOCard.");
+    }
+}
+
+class LUNACardStrategy implements PaymentStrategy {
+private String emailId;
+private String password;
+
+    public LUNACardStrategy(String email, String pwd){
+        this.emailId=email;
+        this.password=pwd;
+    }
+    
+    @Override
+    public void pay(int amount) {
+        System.out.println(amount + " paid using LUNACard.");
+    }
+}
+
+class Item {
+private String name;
+private int price;
+public Item(String name, int cost){
+this.name=name;
+this.price=cost;
+}
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+}
+
+class ShoppingCart {
+List<Item> items;
+
+    public ShoppingCart(){
+        this.items=new ArrayList<Item>();
+    }
+    
+    public void addItem(Item item){
+        this.items.add(item);
+    }
+    
+    public void removeItem(Item item){
+        this.items.remove(item);
+    }
+    
+    public int calculateTotal(){
+        int sum = 0;
+        for(Item item : items){
+            sum += item.getPrice();
+        }
+        return sum;
+    }
+    
+    public void pay(PaymentStrategy paymentMethod){
+        int amount = calculateTotal();
+        paymentMethod.pay(amount);
+    }
+}
+
+public class HelloWorld{
+public static void main(String []args){
+ShoppingCart cart = new ShoppingCart();
+
+        Item A = new Item("kundolA",100);
+        Item B = new Item("kundolB",300);
+        
+        cart.addItem(A);
+        cart.addItem(B);
+        
+        // pay by LUNACard
+        cart.pay(new LUNACardStrategy("kundol@example.com", "pukubababo"));
+        // pay by KAKAOBank
+        cart.pay(new KAKAOCardStrategy("Ju hongchul", "123456789", "123", "12/01"));
+    }
+}
+/*
+400 paid using LUNACard.
+400 paid using KAKAOCard.
+*/
+
+
+
+
+
+
+
+
+
+활용 : passport의 전략 패턴
+
+💡 passport 전략 패턴
+Node.js에서 인증 모듈을 구현할 때 쓰는 미들웨어 라이브러리로
+여러 가지 '전략'을 기반으로 인증할 수 있게 한다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 4. 옵저버 패턴
 
